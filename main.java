@@ -1,20 +1,18 @@
-import java.io.*;  
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
 import java.security.*;
-import java.security.spec.ECGenParameterSpec;
 import java.util.Base64;
 
 public class Main
 {
 	public static void main(String[] args) {
 	    
+	    //Instantization of BlockChain
 		BlockChain crypto = new BlockChain();
 		
 		int wallets_num = 5;
         String[] wallets = new String[wallets_num];
         String[] walletskeys = new String[wallets_num];
         
+        //Generating number of wallets
         for (int i = 0; i < wallets_num;i++){
             keyGenerator KeyGen = new keyGenerator();
     		KeyPair KPair = KeyGen.getSign();
@@ -22,7 +20,6 @@ public class Main
     		wallets[i] = Base64.getEncoder().encodeToString(KPair.getPublic().getEncoded());
     		walletskeys[i] = Base64.getEncoder().encodeToString(KPair.getPrivate().getEncoded());
         }
-		
 		
 		transaction trans = null;
 		
@@ -56,13 +53,13 @@ public class Main
 		
 		crypto.minePendingTransaction("miner X");
 
-		System.out.println("chain validity state: " + crypto.isChainValid());
-		
-		System.out.println("abdelrahman's balance: " +  String.format("%.02f", crypto.getBalance(wallets[0])) +" $");
-		System.out.println("mostafa's balance: " +  String.format("%.02f", crypto.getBalance(wallets[1])) +" $");
-		System.out.println("talha's balance: " +  String.format("%.02f", crypto.getBalance(wallets[2])) +" $");
-		System.out.println("mones's balance: " +  String.format("%.02f", crypto.getBalance(wallets[3])) +" $");
-		System.out.println("marwan's balance: " +  String.format("%.02f", crypto.getBalance(wallets[4])) +" $");
-		System.out.println("miner X's balance: " + String.format("%.02f", crypto.getBalance("miner X")) +" $");
+		System.out.println("chain validity state: " + crypto.isChainValid() + "\n");
+
+		System.out.println("abdelrahman's balance: " +  crypto.getBalance(wallets[0]) +" $");
+		System.out.println("mostafa's balance: " +  crypto.getBalance(wallets[1]) +" $");
+		System.out.println("talha's balance: " +  crypto.getBalance(wallets[2]) +" $");
+		System.out.println("mones's balance: " +  crypto.getBalance(wallets[3]) +" $");
+		System.out.println("marwan's balance: " +  crypto.getBalance(wallets[4]) +" $");
+		System.out.println("miner X's balance: " + crypto.getBalance("miner X") +" $");
 	}
 }
