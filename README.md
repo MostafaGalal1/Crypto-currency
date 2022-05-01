@@ -1,2 +1,2 @@
 # Crypto-currency
-A virtual currency mini project that simulates real cryptocurrency concepts like blockchain, transaction signing, hashing and message encryption
+A virtual currency project which simulates some cryptocurrency concepts as hashing, message encryption, blockchain and transaction signing.
