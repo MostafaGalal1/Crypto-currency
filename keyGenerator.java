@@ -1,12 +1,11 @@
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
 import java.security.*;
-import java.security.spec.ECGenParameterSpec;
 import java.util.Base64;
 
 class keyGenerator{
     
     public KeyPair getSign() {
+        
+        //Generating KeyPair of public and private keys
         KeyPair pair = null;
         try {
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
